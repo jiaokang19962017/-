@@ -12,7 +12,7 @@ using System.Configuration;
 namespace StudentMS
 {
 
-    class UserManager
+  public  class UserManager
     {
         private static readonly string strConn = ConfigurationManager.ConnectionStrings["ConnStr"].ToString();
 
@@ -48,7 +48,8 @@ namespace StudentMS
             }
 
         }
-        
+
+     
 
 
 

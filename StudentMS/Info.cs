@@ -21,7 +21,7 @@ namespace StudentMS
             {
                 case 1:
                     Console.Clear();
-                    Console.WriteLine("增加学生信息");
+                    
                     break;
                 case 2:
                     Console.Clear();

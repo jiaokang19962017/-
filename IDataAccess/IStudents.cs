@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace IDataAccess
 {
-   public interface IUserDA
+    public interface IStudents
     {
-     
-      
+        bool AddStuInfo(Students stu);
     }
 }
