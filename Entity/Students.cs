@@ -22,7 +22,7 @@ namespace Entity
         /// <summary>
         /// 性别
         /// </summary>
-        public string StuSex { get; set; }
+        public int StuSex { get; set; }
         /// <summary>
         /// 出生日期
         /// </summary>

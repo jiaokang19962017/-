@@ -15,8 +15,7 @@ namespace StudentMS
   public  class UserManager
     {
         private static readonly string strConn = ConfigurationManager.ConnectionStrings["ConnStr"].ToString();
-
-
+        IStudents studentDA = new StudentDA();
         /// <summary>
         /// 登录方法
         /// </summary>
@@ -49,8 +48,51 @@ namespace StudentMS
 
         }
 
-     
+        /// <summary>
+        /// 添加学生信息方法
+        /// </summary>
+        /// <returns>添加成功返回true</returns>
+        public  bool SetStudentInfo()
+        {
+            Console.WriteLine("请输入姓名:");
+            string name = Console.ReadLine();
+            Console.WriteLine("请输入性别:");
+            int sex = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("请输入出生日期:");
+            DateTime birth = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("请输入电话:");
+            string phone = Console.ReadLine();
+            Console.WriteLine("请输入地址:");
+            string address = Console.ReadLine();
+           bool result = studentDA.AddStuInfo(name,sex,birth,phone,address);
+            return result;
+        }
 
+
+        /// <summary>
+        /// 查看学生信息方法
+        /// </summary>
+        public void GetStudentInfo()
+        {
+            List<Students> lstudent = studentDA.SelectAll();
+            foreach (Students stu in lstudent)
+            {
+                string sex = stu.StuSex == 1 ? "男" : "女";
+                StringBuilder sb = new StringBuilder();
+                sb.Append(stu.StuId + "\t");
+                sb.Append(stu.StuName + "\t");
+                sb.Append(sex + "\t");
+                sb.Append(stu.StuBirth.ToString("yyyy-MM-dd") + "\t");
+                sb.Append(stu.StuPhone + "\t");
+                sb.Append(stu.StuPlace + "\t");
+                Console.WriteLine(sb.ToString());
+
+
+
+            }
+
+
+        }
 
 
     }

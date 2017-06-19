@@ -49,7 +49,7 @@ namespace StudentMS
                         else if (choose == "n")//如果为n,继续调用主界面方法
                         {
                             Console.Clear();
-                            Home.HomePage();
+                            HomePage();
                         }
                         break;
                 }
@@ -58,8 +58,7 @@ namespace StudentMS
             {
                 Console.Clear();
                 Console.WriteLine("输入编号有误,重新输入:");
-                Home.HomePage();
-                
+                HomePage();      
             }
            
         }
