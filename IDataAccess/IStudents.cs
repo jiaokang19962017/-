@@ -20,6 +20,16 @@ namespace IDataAccess
         /// <returns>成功返回true</returns>
         bool AddStuInfo(string stuname, int stusex, DateTime stubirth, string stuphone, string stuplace);
 
+        /// <summary>
+        /// 查询学生信息
+        /// </summary>
+        /// <returns>返回集合</returns>
         List<Students> SelectAll();
+
+        /// <summary>
+        /// 删除学生信息
+        /// </summary>
+        /// <returns>返回受影响行数</returns>
+      int DeleStuInfo(int stuid);
     }
 }

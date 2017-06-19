@@ -39,7 +39,28 @@ namespace DataAccess
            int count =  SqlHelper.ExecutrNonQuery(CommandType.Text,strsql,parm);
             return count > 0 ? true : false;
         }
+        /// <summary>
+        /// 学生信息删除方法
+        /// </summary>
+        /// <param name="stuid">学生id</param>
+        /// <returns>返回受影响行数</returns>
+        public int DeleStuInfo(int stuid)
+        {
+            string strsql = @"DELETE FROM Students WHERE StuId =@stuid";
+            SqlParameter[] parm = new SqlParameter[] 
+            {
+                new SqlParameter("@stuid",stuid)
+            };
 
+            int count = SqlHelper.ExecutrNonQuery(CommandType.Text, strsql, parm);
+            return count;
+        }
+
+
+        /// <summary>
+        /// 查询学生信息
+        /// </summary>
+        /// <returns>返回集合</returns>
         public List<Students> SelectAll()
         {
             string strsql = @"select StuId,

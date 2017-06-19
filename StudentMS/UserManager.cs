@@ -94,6 +94,21 @@ namespace StudentMS
 
         }
 
-
+        public int DeleStudentInfo()
+        {
+            Console.WriteLine("请输入要删除的学生ID:");
+            int id = Convert.ToInt32(Console.ReadLine());
+            int result =  studentDA.DeleStuInfo(id);
+            if (result > 0)
+            {
+                Console.WriteLine("删除成功");
+                return 1;
+            }
+            else
+            {
+                Console.WriteLine("删除失败");
+                return 0;
+            }
+        }
     }
 }

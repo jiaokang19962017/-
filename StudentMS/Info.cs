@@ -38,7 +38,13 @@ namespace StudentMS
                     break;
                 case 2:
                     Console.Clear();
-                    Console.WriteLine("删除学生信息");
+                    Console.WriteLine("                    删除学生信息              ");
+                    Console.WriteLine();
+                    Console.WriteLine("编号    姓名   性别      出生日期         手机号       籍贯");
+                    Console.WriteLine();
+                    um.GetStudentInfo();
+                    um.DeleStudentInfo();
+                    StudentPage();
                     break;
                 case 3:
                     Console.Clear();
