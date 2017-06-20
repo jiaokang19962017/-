@@ -180,7 +180,76 @@ namespace StudentMS
         /// </summary>
         public static void ExamPage()
         {
-            Console.WriteLine("考试信息");
+            ExamManager em = new ExamManager();
+            Console.WriteLine("-------------------------------考试信息管理---------------------------------");
+            Console.WriteLine();
+            Console.WriteLine("a.增加考试信息  b.删除考试信息  c.修改考试信息  d.查询考试信息  e.返回主菜单");
+            Console.WriteLine();
+            Console.WriteLine("-----------------------------------------------------------------------------");
+            Console.WriteLine("请输入功能编号:");
+            string select = Console.ReadLine();
+            if (string.IsNullOrEmpty(select))
+            {
+                Console.Clear();
+                Console.WriteLine("输入为空,请重新输入");
+                CoursePage();
+            }
+            else
+            {
+                if (select == "a" || select == "b" || select == "c" || select == "d" || select == "e")
+                {
+                    switch (select)
+                    {
+                        case "a":
+                            em.InsertExamInfo();
+                            CoursePage();
+                            break;
+                        case "b":
+                            Console.Clear();
+                            Console.WriteLine("                    删除考试信息              ");
+                            Console.WriteLine();
+                            Console.WriteLine("编号      课程名      成绩");
+                            Console.WriteLine();
+                            em.GetExamInfo();
+                            em.DelExamInfo();
+                            CoursePage();
+                            break;
+                        case "c":
+                            Console.Clear();
+                            Console.WriteLine("                    修改考试信息              ");
+                            Console.WriteLine();
+                            Console.WriteLine("编号      课程名      学分");
+                            Console.WriteLine();
+                            em.GetExamInfo();
+                            em.UpdExamInfo();
+                            CoursePage();
+                            break;
+                        case "d":
+                            Console.Clear();
+                            Console.WriteLine("                    查询考试信息              ");
+                            Console.WriteLine();
+                            Console.WriteLine("编号      课程名      学分");
+                            Console.WriteLine();
+                            em.GetExamInfo();
+                            CoursePage();
+                            break;
+                        case "e":
+                            Console.Clear();
+                            Home.HomePage();
+                            break;
+
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("输入错误,重新输入:");
+                    CoursePage();
+                }
+
+
+            }
+
         }
     }
 }
