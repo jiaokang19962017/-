@@ -96,9 +96,6 @@ namespace StudentMS
 
         }
         
-
-
-
         /// <summary>
         /// 课程信息管理分页面
         /// </summary>
@@ -130,9 +127,38 @@ namespace StudentMS
                             break;
                         case "b":
                             Console.Clear();
+                            Console.WriteLine("                    删除课程信息              ");
+                            Console.WriteLine();
+                            Console.WriteLine("编号      课程名      学分");
+                            Console.WriteLine();
+                            cm.GetCourseInfo();
                             cm.DeleteCourseInfo();
                             CoursePage();
                             break;
+                        case "c":
+                            Console.Clear();
+                            Console.WriteLine("                    修改课程信息              ");
+                            Console.WriteLine();
+                            Console.WriteLine("编号      课程名      学分");
+                            Console.WriteLine();
+                            cm.GetCourseInfo();
+                            cm.UpdateCourseInfo();
+                            CoursePage();
+                            break;
+                        case "d":
+                            Console.Clear();
+                            Console.WriteLine("                    查询课程信息              ");
+                            Console.WriteLine();
+                            Console.WriteLine("编号      课程名      学分");
+                            Console.WriteLine();
+                            cm.GetCourseInfo();
+                            CoursePage();
+                            break;
+                        case "e":
+                            Console.Clear();
+                            Home.HomePage();
+                            break;
+
                     }
                 }
                 else {

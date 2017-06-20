@@ -57,5 +57,55 @@ namespace DataAccess
             return count;
         }
 
+        /// <summary>
+        /// 修改课程信息方法
+        /// </summary>
+        /// <param name="cou">课程实体类对象</param>
+        /// <returns>返回受影响行数</returns>
+        public int UpdCourseInfo(Course cou)
+        {
+            string strsql = @"update Course set 
+                                                                    CourseName=@coursename,
+                                                                    Credit=@credit 
+                                                           where
+                                                                    CourseId =@courseid";
+            SqlParameter[] parm = new SqlParameter[] 
+            {
+                new  SqlParameter("@coursename",cou.CourseName),
+                new  SqlParameter("@credit",cou.Credit),
+                new  SqlParameter("@courseid",cou.CourseId)
+            };
+            int count = SqlHelper.ExecutrNonQuery(CommandType.Text, strsql, parm);
+            return count;
+        }
+
+
+        /// <summary>
+        /// 查询全部课程信息
+        /// </summary>
+        /// <returns>返回集合</returns>
+        public List<Course> SelectAll()
+        {
+            string strsql = @"select 
+                                                CourseId,
+                                                CourseName,
+                                                Credit 
+                                       from Course";
+            SqlDataReader dr = SqlHelper.ExecuteReader(CommandType.Text, strsql, null);
+            List<Course> lcourse = new List<Course>();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    cou.CourseId = Convert.ToString(dr["CourseId"]);
+                    cou.CourseName = Convert.ToString(dr["CourseName"]);
+                    cou.Credit = Convert.ToInt32(dr["Credit"]);
+                    lcourse.Add(cou);
+                }
+            }
+            dr.Close();
+            return lcourse;
+
+        }
     }
 }
