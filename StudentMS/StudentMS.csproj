@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CourseManager.cs" />
+    <Compile Include="ExamManager.cs" />
     <Compile Include="Home.cs" />
     <Compile Include="Info.cs" />
     <Compile Include="Program.cs" />

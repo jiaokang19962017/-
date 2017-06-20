@@ -174,5 +174,13 @@ namespace StudentMS
 
 
         }
+
+        /// <summary>
+        /// 考试信息管理分页面
+        /// </summary>
+        public static void ExamPage()
+        {
+            Console.WriteLine("考试信息");
+        }
     }
 }

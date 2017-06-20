@@ -46,6 +46,7 @@ namespace StudentMS
                             Info.StudentPage();//调用学生信息管理方法
                             break;
                         case "c":
+                            Info.ExamPage();
                             Console.WriteLine("考试信息表:");
                             break;
                         case "d":
