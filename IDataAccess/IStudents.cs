@@ -30,6 +30,12 @@ namespace IDataAccess
         /// 删除学生信息
         /// </summary>
         /// <returns>返回受影响行数</returns>
-      int DeleStuInfo(int stuid);
+        int DeleStuInfo(int stuid);
+        /// <summary>
+        /// 修改学生信息
+        /// </summary>
+        /// <param name="stuid"></param>
+        /// <returns></returns>
+        int UpdateStuInfo(int stuid,string stuname,int stesex,DateTime stubirth,string stuphone,string stuplace);
     }
 }

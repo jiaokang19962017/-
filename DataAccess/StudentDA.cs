@@ -90,5 +90,34 @@ namespace DataAccess
             dr.Close();
             return lstudent;
         }
+
+        /// <summary>
+        /// 修改学生信息
+        /// </summary>
+        /// <param name="stuid"></param>
+        /// <returns></returns>
+
+        public int UpdateStuInfo(int stuid, string stuname, int stusex, DateTime stubirth, string stuphone, string stuplace)
+        {
+            string strsql = @"update students set   
+                                                stuname=@stuname,
+                                                stusex=@stusex,
+                                                stubirth=@stubirth,
+                                                stuphone=@stuphone,
+                                                stuplace=@stuplace
+                                                where stuid=@stuid";
+            SqlParameter[] parm = new SqlParameter[] 
+            {
+                new SqlParameter("@stuname",stuname),
+                new SqlParameter("@stusex",stusex),
+                new SqlParameter("@stubirth",stubirth),
+                new SqlParameter("@stuphone",stuphone),
+                new SqlParameter("@stuplace",stuplace),
+                new SqlParameter("@stuid",stuid)
+            };
+            int count =  SqlHelper.ExecutrNonQuery(CommandType.Text, strsql, parm);
+            return count;
+        }
+
     }
 }

@@ -12,7 +12,7 @@ using System.Configuration;
 namespace StudentMS
 {
 
-  public  class UserManager
+  public  class StudentManager
     {
         private static readonly string strConn = ConfigurationManager.ConnectionStrings["ConnStr"].ToString();
         IStudents studentDA = new StudentDA();
@@ -56,7 +56,7 @@ namespace StudentMS
         {
             Console.WriteLine("请输入姓名:");
             string name = Console.ReadLine();
-            Console.WriteLine("请输入性别:");
+            Console.WriteLine("请输入性别:(1.男  0.女)");
             int sex = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("请输入出生日期:");
             DateTime birth = Convert.ToDateTime(Console.ReadLine());
@@ -93,7 +93,10 @@ namespace StudentMS
 
 
         }
-
+        /// <summary>
+        /// 删除学生信息方法
+        /// </summary>
+        /// <returns>成功返回1,失败返回0</returns>
         public int DeleStudentInfo()
         {
             Console.WriteLine("请输入要删除的学生ID:");
@@ -110,5 +113,60 @@ namespace StudentMS
                 return 0;
             }
         }
+        /// <summary>
+        /// 修改学生信息的
+        /// </summary>
+        /// <returns></returns>
+        public int UpdateStudentInfo()
+        {
+            Console.WriteLine("请输入要修改的学生id:");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("请输入新的姓名:");
+            string name = Console.ReadLine();
+            Console.WriteLine("请输入新的性别:(1.男  0.女)");
+            int sex = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("请输入新的出生日期:");
+            DateTime birth = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("请输入新的电话:");
+            string phone = Console.ReadLine();
+            Console.WriteLine("请输入新的地址:");
+            string address = Console.ReadLine();
+            int result = studentDA.UpdateStuInfo(id, name, sex, birth, phone, address);
+            if (result > 0)
+            {
+                Console.WriteLine("修改成功");
+                return 1;
+            }
+            else
+            {
+                Console.WriteLine("修改失败");
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// 用户登录方法
+        /// </summary>
+        public  void Load()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("请输入帐号:");
+                string userid = Console.ReadLine();
+                Console.WriteLine("请输入密码:");
+                string userpwd = Console.ReadLine();
+                StudentManager um = new StudentManager();
+
+                int count = um.Loading(userid, userpwd);
+                if (count == 1) //登录成功返回1,进入下一级
+                {
+                    Console.Clear();//清除屏幕
+                    Home.HomePage();
+                    break;
+                }
+
+            }
+        }
+
     }
 }
