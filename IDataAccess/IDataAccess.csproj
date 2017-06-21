@@ -42,7 +42,10 @@
   <ItemGroup>
     <Compile Include="ICourse.cs" />
     <Compile Include="IExam.cs" />
+    <Compile Include="IScore.cs" />
     <Compile Include="IStudents.cs" />
+    <Compile Include="ITop.cs" />
+    <Compile Include="IVague.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

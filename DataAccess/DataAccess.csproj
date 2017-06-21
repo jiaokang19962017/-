@@ -44,7 +44,10 @@
     <Compile Include="CourseDA.cs" />
     <Compile Include="ExamDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreDA.cs" />
     <Compile Include="StudentDA.cs" />
+    <Compile Include="TopDA.cs" />
+    <Compile Include="VagueDA.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

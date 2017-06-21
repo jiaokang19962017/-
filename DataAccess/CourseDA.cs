@@ -105,7 +105,6 @@ namespace DataAccess
             }
             dr.Close();
             return lcourse;
-
         }
     }
 }

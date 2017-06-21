@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DataAccess;
+using Entity;
+using IDataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +11,8 @@ namespace StudentMS
 {
     public class Info
     {
+       
+
        /// <summary>
        /// 学生信息管理分页面
        /// </summary>
@@ -251,5 +256,31 @@ namespace StudentMS
             }
 
         }
+        /// <summary>
+        /// 模糊查询
+        /// </summary>
+        public static void VaguePage()
+        {
+            VagueManager vagm = new VagueManager();
+            vagm.SeleVague();
+        }
+
+        /// <summary>
+        /// 平均成绩和总成绩
+        /// </summary>
+        public static void ScorePage()
+        {
+            ScoreManager sm = new ScoreManager();
+            sm.GetScoreManager();
+        }
+        /// <summary>
+        /// 排行榜
+        /// </summary>
+        public static void TopShow()
+        {
+            TopManager tm = new TopManager();
+            tm.ShowScore();
+        }
+
     }
 }

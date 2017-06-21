@@ -105,5 +105,4 @@ namespace DataAccess
             return lex;
         }
     }
-
 }

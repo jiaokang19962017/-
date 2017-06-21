@@ -96,7 +96,6 @@ namespace DataAccess
         /// </summary>
         /// <param name="stuid"></param>
         /// <returns></returns>
-
         public int UpdateStuInfo(int stuid, string stuname, int stusex, DateTime stubirth, string stuphone, string stuplace)
         {
             string strsql = @"update students set   
@@ -118,6 +117,5 @@ namespace DataAccess
             int count =  SqlHelper.ExecutrNonQuery(CommandType.Text, strsql, parm);
             return count;
         }
-
     }
 }

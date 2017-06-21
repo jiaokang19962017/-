@@ -86,12 +86,7 @@ namespace StudentMS
                 sb.Append(stu.StuPhone + "\t");
                 sb.Append(stu.StuPlace + "\t");
                 Console.WriteLine(sb.ToString());
-
-
-
             }
-
-
         }
         /// <summary>
         /// 删除学生信息方法
@@ -167,6 +162,5 @@ namespace StudentMS
 
             }
         }
-
     }
 }
